@@ -1,0 +1,79 @@
+/* CSS untuk membuat bagian rumahrestaurant responsif di semua ukuran layar */
+#rumah.restaurant {
+  display: grid;
+  gap: 20px;
+  padding: 0 20px;
+  max-width: 100%; /* Menetapkan lebar maksimal sesuai lebar layar */
+  margin: 0 auto; /* Pusatkan bagian rumahrestaurant di tengah */
+  box-sizing: border-box; /* Pastikan padding dan border termasuk dalam perhitungan lebar */
+}
+
+.restaurant-container {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative; /* Untuk membuat tautan detail relatif terhadap kontainer restoran */
+}
+
+.restaurant {
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-img {
+  width: 100%;
+  aspect-ratio: 16/9; /* Mengatur rasio aspek gambar menjadi 16:9 */
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  transition: transform 0.3s;
+}
+
+.restaurant__name {
+  font-size: 1.2em;
+  margin: 0;
+  height: 44px;
+  text-align: center;
+}
+
+.restaurant__rating {
+  font-size: 1.2em;
+  color: #ffa500;
+  height: 44px;
+}
+
+.restaurant__separator {
+  margin: 10px 0;
+  border: 0;
+  border-top: 1px solid #ddd;
+}
+
+.restaurant__place {
+  margin: 0;
+  height: 44px;
+}
+
+.deskripsi {
+  margin: 10px 0;
+}
+
+@media only screen and (min-width: 768px) {
+  #rumah.restaurant {
+    grid-template-columns: repeat(2, 1fr); /* Mengatur jumlah kolom menjadi 2 pada layar lebar */
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #rumah.restaurant {
+    grid-template-columns: repeat(3, 1fr); /* Mengatur jumlah kolom menjadi 3 pada layar yang lebih lebar */
+  }
+}
+
+/* Tambahan untuk ukuran layar yang lebih kecil */
+@media only screen and (max-width: 300px) {
+  #rumah.restaurant {
+    grid-template-columns: repeat(1, 1fr); /* Menyesuaikan jumlah kolom untuk layar yang lebih kecil */
+  }
+}

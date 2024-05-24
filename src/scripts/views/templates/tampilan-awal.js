@@ -7,13 +7,54 @@ import CONFIG from "../../globals/config";
 const createTampilanAwal = (restaurant) => `
 <div class="restaurant-container">
   <div class="restaurant">
-    <img class="restaurant-img" src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}" alt="${restaurant.name}" />
+  <picture>
+  <source
+    srcset="${CONFIG.BASE_IMAGE_SMALL_URL + restaurant.pictureId}"
+    type="image/webp"
+    media="(max-width: 300px)"
+  />
+  <source
+    srcset="${CONFIG.BASE_IMAGE_SMALL_URL + restaurant.pictureId}"
+    type="image/jpeg"
+    media="(max-width: 300px)"
+  />
+  <source
+    srcset="${CONFIG.BASE_IMAGE_MEDIUM_URL + restaurant.pictureId}"
+    type="image/webp"
+    media="(min-width: 301px) and (max-width: 700px)"
+  />
+  <source
+    srcset="${CONFIG.BASE_IMAGE_MEDIUM_URL + restaurant.pictureId}"
+    type="image/jpeg"
+    media="(min-width: 301px) and (max-width: 700px)"
+  />
+  <source
+    srcset="${CONFIG.BASE_IMAGE_LARGE_URL + restaurant.pictureId}"
+    type="image/webp"
+    media="(min-width: 701px)"
+  />
+  <source
+    srcset="${CONFIG.BASE_IMAGE_LARGE_URL + restaurant.pictureId}"
+    type="image/jpeg"
+    media="(min-width: 701px)"
+  />
+  <img
+    class="restaurant-img lazyload"
+    data-srcset="${CONFIG.BASE_IMAGE_MEDIUM_URL + restaurant.pictureId}"
+    alt="${restaurant.name}"
+    width="300"
+    height="200"
+  />
+</picture>
+
+
+    <a href="${`/#/detail/${restaurant.id}`}" class="link-detail">See More...</a>
     <h2 class="restaurant__name">${restaurant.name}</h2>
     <p class="restaurant__rating">⭐ ${restaurant.rating}</p>
     <hr class="restaurant__separator" />
     <p class="restaurant__place">${restaurant.city}</p>
     <p class="deskripsi">${restaurant.description}</p>
-    <a href="${`/#/detail/${restaurant.id}`}" class="link-detail">See More</a>
+  
   </div>
 </div>`;
 
@@ -21,7 +62,64 @@ const createTampilanKedua = (restaurant) => `
 <div class="restaurant-detail">
   <h2 class="restaurant-title">${restaurant.name}</h2>
   <div class="restaurant-info">
-    <img class="restaurant-img" src="${CONFIG.BASE_IMAGE_URL}/${restaurant.pictureId}" alt="${restaurant.name}" /> 
+  <picture>
+      <source
+        class="restaurant-img lazyload"
+        data-src="${CONFIG.BASE_IMAGE_SMALL_URL + restaurant.pictureId}"
+        type="image/webp"
+        media="(max-width: 300px)"
+      />
+      <source
+        class="restaurant-img lazyload"
+        data-src="${CONFIG.BASE_IMAGE_SMALL_URL + restaurant.pictureId}"
+        type="image/jpeg"
+        media="(max-width: 300px)"
+      />
+      <source
+        class="restaurant-img lazyload"
+        data-src="${CONFIG.BASE_IMAGE_SMALL_URL + restaurant.pictureId}"
+        type="image/webp"
+        media="(min-width: 301px) and (max-width: 700px)"
+      />
+      <source
+        class="restaurant-img lazyload"
+        data-src="${CONFIG.BASE_IMAGE_SMALL_URL + restaurant.pictureId}"
+        type="image/jpeg"
+        media="(min-width: 301px) and (max-width: 700px)"
+      />
+      <source
+        class="restaurant-img lazyload"
+        data-src="${CONFIG.BASE_IMAGE_MEDIUM_URL + restaurant.pictureId}"
+        type="image/webp"
+        media="(min-width: 701px) and (max-width: 900px)"
+      />
+      <source
+        class="restaurant-img lazyload"
+        data-src="${CONFIG.BASE_IMAGE_MEDIUM_URL + restaurant.pictureId}"
+        type="image/jpeg"
+        media="(min-width: 701px) and (max-width: 900px)"
+      />
+      <source
+        class="restaurant-img lazyload"
+        data-src="${CONFIG.BASE_IMAGE_LARGE_URL + restaurant.pictureId}"
+        type="image/webp"
+        media="(min-width: 901px)"
+      />
+      <source
+        class="restaurant-img lazyload"
+        data-src="${CONFIG.BASE_IMAGE_LARGE_URL + restaurant.pictureId}"
+        type="image/jpeg"
+        media="(min-width: 901px)"
+      />
+      <img
+        class="restaurant-img lazyload"
+        data-src="${CONFIG.BASE_IMAGE_MEDIUM_URL + restaurant.pictureId}"
+        alt="${restaurant.name}"
+        width="300"
+        height="200"
+      />
+    </picture>
+
     <div class="restaurant-description">
       <ul class="detail-info">
         <li class="rest-name">

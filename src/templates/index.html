@@ -6,10 +6,18 @@
     <meta name="theme-color" content="#DB0000" />
 
     <link rel="apple-touch-icon" href="../public/images/logos/brand-logo192.png" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" as="style" onload="this.rel='stylesheet'" />
     <link rel="manifest" href="./app.webmanifest" />
     <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" />
+    <link rel="preload" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'" />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" as="style" onload="this.rel='stylesheet'" />
+    <style>
+      @font-face {
+        font-family: "Poppins";
+        src: url("https://fonts.gstatic.com/s/poppins/v21/pxiByp8kv8JHgFVrJJfecnFHGPc.woff2") format("woff2");
+        font-display: swap;
+      }
+    </style>
 
     <title>Restaurant Apps</title>
   </head>
@@ -17,7 +25,11 @@
     <a href="#mainContent" class="skip-link">Menuju ke konten</a>
     <header>
       <div class="brand">
-        <img src="./images/heros/brand-logo.png" alt="Brand Logo" />
+        <picture>
+          <source media="(max-width: 600px)" srcset="./images/brand-logo-small.png" />
+          <img src="./images/brand-logo-large.png" alt="Brand Logo" />
+        </picture>
+
         <span class="brand-name">Restaurant Apps</span>
       </div>
       <button id="hamburgerButton">☰</button>

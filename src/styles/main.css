@@ -1,16 +1,23 @@
+/* General Styles */
 body {
   font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 header {
-  width: 100%;
-  background-color: #10922c;
-  color: #fff;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
-  font-size: 1.5rem;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
 }
 
 .brand {
@@ -19,255 +26,136 @@ header {
 }
 
 .brand img {
-  width: 44px;
   height: 44px;
   margin-right: 10px;
 }
 
 .brand-name {
-  height: 2.5rem;
-  font-size: 1.3rem;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
+
 nav ul {
-  list-style-type: none;
-  margin: 0;
+  list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
 }
 
 nav ul li {
-  margin-right: 20px;
-  margin-bottom: 10px; /* Tambahkan margin bottom */
-  height: 2.5rem;
+  margin: 0 1rem;
 }
 
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-.explorer {
-  .explorer {
-    height: 2rem;
-    position: relative;
-    z-index: 1; /* Menjadikan elemen explorer berada di atas container restoran */
-  }
-}
-.menu-toggle {
+#hamburgerButton {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 20px;
-  cursor: pointer;
+  font-size: 2.24rem;
   background: none;
   border: none;
-  padding: 0;
-  margin: 0;
+  cursor: pointer;
+  height: 44px;
 }
 
-.menu-toggle span {
-  width: 100%;
-  height: 2px;
-  background-color: #fff;
-  display: block;
+#navigationDrawer {
+  display: flex;
 }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #ffffff;
+  color: #fff;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+main {
+  padding: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  height: 60px; /* Sesuaikan dengan tinggi footer sebenarnya */
+}
+
+/* Responsive Styles */
+@media (max-width: 780px) {
+  #hamburgerButton {
+    display: block;
+  }
+
+  #navigationDrawer {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 120px;
+    background-color: #008000; /* Green background for the drawer */
+    padding: 2rem 1rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  #navigationDrawer ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #navigationDrawer li {
+    margin: 0.2rem 0rem;
+  }
+
+  #navigationDrawer ul li a {
+    min-height: 20px;
+    min-width: 20px;
+    display: inline-flex; /* Memastikan link menempati seluruh space */
+    align-items: center; /* Posisikan teks secara vertikal di tengah */
+    padding: 10px; /* Berikan padding agar touch area lebih besar */
+    text-decoration: none; /* Hapus underline default pada tautan */
+  }
+
+  #navigationDrawer.open {
+    display: flex;
+  }
+}
+
+/* Hero Image Styles */
 .hero-image {
   position: relative;
-  width: 100%;
-  height: 450px;
-  overflow: hidden;
-  padding: 0 20px;
+  text-align: center;
+  overflow: hidden; /* Menyembunyikan bagian gambar yang melebihi ukuran hero */
 }
 
 .hero-image img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  z-index: -1;
+  height: auto; /* Mengisi tinggi hero */
+  object-fit: cover; /* Memastikan gambar akan mengisi area secara proporsional */
+  aspect-ratio: 16/9;
 }
 
 .hero-text {
   position: absolute;
-  top: 30%;
+  top: 40%; /* Menggeser teks ke atas */
   left: 50%;
   transform: translate(-50%, -50%);
-  color: black;
-  font-size: 2.25rem;
-  z-index: 1;
-  text-align: center;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-  height: 2.5rem;
-}
-
-.hero-image p {
-  position: absolute;
-  bottom: 5%; /* Responsive distance from bottom */
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
-  text-align: center;
-  z-index: 1;
-  text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
-  max-width: 80%;
-  margin: 0 auto;
-  line-height: 1.5;
-}
-
-@media screen and (max-width: 1200px) {
-  .hero-image {
-    width: 100%;
-    max-width: none;
-  }
-  .hero-text {
-    font-size: 28px;
-    top: 25%;
-  }
-  .hero-image p {
-    font-size: 0.9rem;
-    bottom: 15px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .hero-image {
-    height: 350px;
-  }
-  .hero-text {
-    font-size: 28px;
-    top: 25%;
-  }
-  .hero-image p {
-    font-size: 0.9rem;
-    bottom: 15px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .hero-image {
-    height: 250px;
-  }
-  .hero-text {
-    font-size: 24px;
-    top: 20%;
-  }
-  .hero-image p {
-    font-size: 0.8rem;
-    bottom: 10px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .hero-image {
-    height: 200px;
-  }
-  .hero-text {
-    font-size: 20px;
-    top: 15%;
-  }
-  .hero-image p {
-    font-size: 0.7rem;
-    bottom: 5px;
-  }
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-}
-
-footer {
-  background-color: #10922c;
   color: #fff;
-  padding: 20px;
-  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #000;
 }
 
-footer p {
-  margin: 0;
-  font-size: 14px;
-}
-
-@media screen and (max-width: 768px) {
-  nav ul {
-    display: none;
-  }
-  #hamburgerButton {
-    /* Changed the ID to match HTML */
-    display: block;
-    color: #fff;
-    font-size: 1.5rem;
-    text-decoration: none;
-    min-width: 44px; /* Memastikan ukuran minimal lebar 44px */
-    min-height: 44px; /* Memastikan ukuran minimal tinggi 44px */
-    padding: 10px; /* Menambahkan padding agar dimensi touch target lebih besar */
-  }
-
-  #navigationDrawer {
-    /* Changed the ID to match HTML */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 100%;
-    background-color: #10922c;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
-  }
-
-  @media screen and (max-width: 300px) {
-    footer {
-      padding: 5px;
-    }
-  }
-
-  #navigationDrawer.open {
-    /* Changed the ID to match HTML */
-    transform: translateX(0);
-  }
-  #navigationDrawer ul {
-    /* Changed the ID to match HTML */
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-  }
-  #navigationDrawer ul li {
-    /* Changed the ID to match HTML */
-    margin-bottom: 10px;
-  }
-}
-
-@media screen and (min-width: 769px) {
-  nav ul {
-    display: flex;
-  }
-  #hamburgerButton {
-    /* Changed the ID to match HTML */
-    display: none;
-  }
-}
-
-nav ul li a,
-.menu-toggle {
-  padding: 14px 20px;
-}
-
-nav ul li {
-  margin-right: 20px;
-  margin-bottom: 10px; /* Tambahkan margin bottom */
-}
-
-.menu-toggle {
-  margin-right: 20px;
-}
-
-.footer p {
-  margin-top: 20px;
+.hero-text p {
+  font-size: 1.2rem;
+  font-weight: 300;
 }
 
 .skip-link {
@@ -310,71 +198,7 @@ nav ul li {
   background-color: #45a049;
 }
 
-#rumah.restaurant {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  padding: 0 20px;
-}
-
-.restaurant-container {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.restaurant {
-  display: flex;
-  flex-direction: column;
-}
-
-.restaurant-img {
-  width: 100%;
-  height: 200px; /* Tinggi gambar tetap */
-  object-fit: cover; /* Memastikan gambar tetap proporsional dan terpotong */
-  border-radius: 10px;
-  margin-bottom: 15px;
-  transition: transform 0.3s;
-}
-
-.restaurant__name {
-  font-size: 1.2em;
-  margin: 0;
-  height: 44px;
-}
-
-.restaurant__rating {
-  font-size: 1.2em;
-  color: #ffa500;
-  height: 44px;
-}
-
-.restaurant__separator {
-  margin: 10px 0;
-  border: 0;
-  border-top: 1px solid #ddd;
-}
-
-.restaurant__place {
-  margin: 0;
-  height: 44px;
-}
-
-.deskripsi {
-  margin: 10px 0;
-}
-
-@media only screen and (min-width: 768px) {
-  #rumah.restaurant {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/*
-  Like
-*/
+/* Like Button */
 .like {
   width: 55px;
   height: 55px;
@@ -382,34 +206,17 @@ nav ul li {
   align-items: center;
   justify-content: center;
   background-color: #db0000;
-
   position: fixed;
   bottom: 16px;
   right: 16px;
   border-radius: 50%;
   border: 0;
-
   font-size: 18px;
   color: white;
   cursor: pointer;
 }
 
-.link-detail {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 1em;
-  color: #fff;
-  background-color: #28a745;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-}
-
-.link-detail:hover {
-  background-color: #218838;
-}
-
+/* Miscellaneous Heights */
 h4 {
   height: 44px;
 }
@@ -430,6 +237,46 @@ h4 {
   height: 50px;
 }
 
-.footer a {
-  height: 50px;
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.explore-restaurant__label {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.restaurant-item__not__found {
+  color: #999;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* Optional styles for the section */
+#explore-restaurant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Example styling for individual restaurant items */
+.restaurant-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+a.link-detail {
+  min-height: 20px;
+  min-width: 20px;
+  display: inline-block;
+  padding: 10px; /* Sesuaikan dengan kebutuhan */
+  text-decoration: none; /* Hapus underline default pada tautan */
 }

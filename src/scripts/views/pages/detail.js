@@ -8,9 +8,12 @@ const Detail = {
   async render() {
     return `
     <div class="hero-image">
-      <img src="./images/heros/hero-image_2.jpg" alt="gambarmakan" />
+    <picture>
+  <source media="(max-width: 600px)" srcset="./images/hero-image_2-small.jpg">
+  <img src="./images/hero-image_2-large.jpg" alt="gambarmakan" id="hero-image" loading="lazy">
+</picture>
+
       <h1 class="hero-text">Restaurant Apps</h1>
-      <p>Temukan berbagai pilihan restoran terbaik di sekitar Anda</p>
     </div>
     <div class="main">
         <section id="detail-rest"></section>
